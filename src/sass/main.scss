@@ -28,7 +28,11 @@ html {
 }
 
 body {
+  max-width: 1500px;
+  margin: auto;
   position: relative;
+
+  width: 100%;
 }
 
 ul {
