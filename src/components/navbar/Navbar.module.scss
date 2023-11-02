@@ -1,0 +1,123 @@
+$nav-bg-color: rgba(
+  $color: #000000,
+  $alpha: 0.85,
+);
+
+$wrapper-pd-horizontal: 3.5%;
+
+$logo-size: 12.5rem;
+$cart-count-size: 1.25rem;
+$mobile-btn-size: 1.65rem;
+$cart-size: 1.2rem;
+
+.nav {
+  background-color: $nav-bg-color;
+  left: 0;
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+  z-index: 5;
+
+  &btn {
+    position: relative;
+
+    & > svg {
+      fill: #fff;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  height: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $wrapper-pd-horizontal;
+}
+
+.logo {
+  width: $logo-size;
+
+  & svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.controls {
+  display: flex;
+  flex: 1;
+  gap: 3rem;
+  justify-content: center;
+  margin: 0 3rem;
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-left: auto;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+}
+
+.item {
+  & > a {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+
+.features {
+  align-items: center;
+  display: flex;
+}
+
+//////////// hamburger Icon
+#mobile {
+  display: none;
+  height: $mobile-btn-size;
+  width: $mobile-btn-size;
+
+  @media screen and (max-width: 800px) {
+    display: block;
+  }
+}
+//////////// Cart icon
+#cart {
+  width: $cart-size;
+
+  & > span {
+    align-items: center;
+    bottom: -33%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: -50%;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-right: 3rem;
+  }
+}
+
+.count {
+  background-color: #fff;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 500;
+  height: $cart-count-size;
+  width: $cart-count-size;
+}
