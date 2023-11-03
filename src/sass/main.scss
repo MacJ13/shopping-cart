@@ -1,4 +1,10 @@
 $link-color: #fff;
+$txt-color: #3f3f46;
+
+// $link-bg: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+$link-hover-bg: rgba(0, 0, 0, 0.15);
+
+$double-right-chevron-size: 2rem;
 
 *,
 *::after,
@@ -32,6 +38,7 @@ body {
   margin: auto;
   position: relative;
   width: 100%;
+  color: $txt-color;
 }
 
 ul {
@@ -56,9 +63,56 @@ select:focus {
 }
 
 .section {
-  padding: 8rem 0;
+  padding: 11rem 0;
+  position: relative;
+  top: 1rem;
+
+  @media screen and (max-width: 900px) {
+    padding: 8rem 0;
+  }
+
+  // @media screen and (max-width: 700px) {
+  //   padding: 8rem 0;
+  // }
 }
 
 .container {
-  padding: 0 5%;
+  position: relative;
+  padding: 0 3.5%;
+}
+
+.link {
+  border-radius: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  &:hover {
+    background-color: $link-hover-bg;
+  }
+}
+
+.double-chevron-right {
+  opacity: 1;
+  animation: fadeInOut 0.75s 0s infinite;
+  & > svg {
+    display: block;
+    height: $double-right-chevron-size;
+    width: $double-right-chevron-size;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(0.5rem);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  99.99999999999999% {
+    opacity: 0;
+    transform: translateX(1.5rem);
+  }
 }
