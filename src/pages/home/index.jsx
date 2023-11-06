@@ -1,11 +1,13 @@
 import Intro from "./components/intro/Intro";
 import Panel from "./components/panel/Panel";
-
+import Categories from "./components/categories/Categories";
 const Home = () => {
   return (
     <>
       <Intro />
+
       <Panel />
+      <Categories />
 
       {/* <div className={style.intro}>
         <div className={style.bg}>
