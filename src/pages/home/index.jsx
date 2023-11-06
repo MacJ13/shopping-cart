@@ -1,9 +1,11 @@
 import Intro from "./components/intro/Intro";
+import Panel from "./components/panel/Panel";
 
 const Home = () => {
   return (
     <>
       <Intro />
+      <Panel />
 
       {/* <div className={style.intro}>
         <div className={style.bg}>
