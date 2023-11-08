@@ -14,7 +14,7 @@ export const routerConfig = [
         element: <Home />,
       },
       {
-        path: "shop",
+        path: "shop/",
         element: <Shop />,
       },
     ],
