@@ -1,6 +1,25 @@
+import { useFetch } from "../../hooks/useFetch";
+import {
+  DEFAULT_CATEGORY_ID,
+  DEFAULT_SORT,
+  PAGE_SIZE,
+  START_PAGE,
+} from "../../utils/constants";
 import style from "./Shop.module.scss";
 
 const Shop = () => {
+  const url = `https://api.bestbuy.com/v1/products(categoryPath.id=${DEFAULT_CATEGORY_ID})?format=json&show=sku,name,customerReviewCount,customerReviewAverage,salePrice,image&pageSize=${PAGE_SIZE}&page=${START_PAGE}&sort=${DEFAULT_SORT}&apiKey=${
+    import.meta.env.VITE_API_KEY
+  }`;
+
+  const [data, error, loading] = useFetch(url);
+
+  console.log(data);
+
+  // const url = `https://api.bestbuy.com/v1/products(${searchAttr}categoryPath.id=${shopCategoryId})?format=json&show=sku,name,customerReviewCount,customerReviewAverage,salePrice,image&pageSize=${pageSize}&page=${page}&sort=${sorted}&apiKey=${
+  //   import.meta.env.VITE_API_KEY
+  // }`;
+
   return (
     <>
       <section className={style.sec}>
