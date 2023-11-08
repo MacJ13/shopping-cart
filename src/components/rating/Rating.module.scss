@@ -1,0 +1,33 @@
+.rating {
+  align-items: center;
+  display: flex;
+}
+
+.lg {
+  & .stars {
+    font-size: 1.5rem;
+  }
+
+  & .count {
+    font-size: 1.1rem;
+  }
+}
+
+.stars {
+  display: inline-block;
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+  position: relative;
+}
+
+.overall {
+  color: #ffc700;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+.count {
+  color: inherit;
+}
