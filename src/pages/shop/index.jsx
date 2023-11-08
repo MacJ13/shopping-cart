@@ -6,6 +6,7 @@ import {
   START_PAGE,
 } from "../../utils/constants";
 import style from "./Shop.module.scss";
+import Items from "./components/items/Items";
 
 const Shop = () => {
   const url = `https://api.bestbuy.com/v1/products(categoryPath.id=${DEFAULT_CATEGORY_ID})?format=json&show=sku,name,customerReviewCount,customerReviewAverage,salePrice,image&pageSize=${PAGE_SIZE}&page=${START_PAGE}&sort=${DEFAULT_SORT}&apiKey=${
@@ -13,12 +14,6 @@ const Shop = () => {
   }`;
 
   const [data, error, loading] = useFetch(url);
-
-  console.log(data);
-
-  // const url = `https://api.bestbuy.com/v1/products(${searchAttr}categoryPath.id=${shopCategoryId})?format=json&show=sku,name,customerReviewCount,customerReviewAverage,salePrice,image&pageSize=${pageSize}&page=${page}&sort=${sorted}&apiKey=${
-  //   import.meta.env.VITE_API_KEY
-  // }`;
 
   return (
     <>
@@ -43,6 +38,10 @@ const Shop = () => {
         </div>
         <div className={style.panel}>
           <div className={`${style.column} ${style.left}`}>
+            {Object.values(data).length !== 0 && (
+              <Items items={data.products} />
+            )}
+
             {/* Place of and Sort Items and Shop list and Pagination */}
           </div>
           <div className={`${style.column} ${style.right}`}>

@@ -101,12 +101,8 @@ $intro-txt-color: #fff;
 .panel {
   padding: 2.5rem 3.5%;
   display: grid;
-  grid-template-columns: 1fr 15rem;
-  column-gap: 1.5rem;
-
-  @media screen and (max-width: 800px) {
-    grid-template-columns: 1fr 12.5rem;
-  }
+  grid-template-columns: 1fr 12.5rem;
+  column-gap: 2rem;
 
   @media screen and (max-width: 600px) {
     grid-template-columns: 1fr 10rem;
