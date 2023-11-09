@@ -1,12 +1,22 @@
+/* eslint-disable react/prop-types */
 import style from "./Category.module.scss";
 
 import { CATEGORIES } from "../../../../utils/constants";
+import { NavLink } from "react-router-dom";
 
-const Category = () => {
+const Category = ({ categoryId }) => {
   const links = CATEGORIES.map((category) => {
+    const to = "category/" + category.id;
     return (
       <li key={category.id} className={style.li}>
-        <a className={style.link}>{category.name}</a>
+        <NavLink
+          to={to}
+          className={({ isActive }) =>
+            isActive ? `${style.link} ${style.active}` : style.link
+          }
+        >
+          {category.name}
+        </NavLink>
       </li>
     );
   });
@@ -15,27 +25,7 @@ const Category = () => {
     <aside className={style.sidebar}>
       <div className={style.category}>
         <h3>Categories</h3>
-        <ul className={style.ul}>
-          {links}
-          {/* <li className={style.li}>
-            <a className={style.link}>desktops</a>
-          </li>
-          <li className={style.li}>
-            <a className={style.link}>laptops</a>
-          </li>
-          <li className={style.li}>
-            <a className={`${style.link} ${style.current}`}>monitors</a>
-          </li>
-          <li className={style.li}>
-            <a className={style.link}>components</a>
-          </li>
-          <li className={style.li}>
-            <a className={style.link}>accessories</a>
-          </li>
-          <li className={style.li}>
-            <a className={style.link}>connectors</a>
-          </li> */}
-        </ul>
+        <ul className={style.ul}>{links}</ul>
       </div>
     </aside>
   );
