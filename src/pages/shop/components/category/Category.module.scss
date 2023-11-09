@@ -51,6 +51,66 @@ $clear-btn-color: rgb(252, 166, 166);
   }
 }
 
+#clear {
+  margin-top: 0.25rem;
+
+  &::after {
+    content: none;
+  }
+}
+
+button.clear__btn {
+  border: 2px solid $clear-btn-color;
+  border-radius: 0.75rem;
+  // background-color: #fca5a5;
+  // background-image: $link-gradient;
+  // opacity: 0.85;
+  color: $clear-btn-color;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  transition: opacity 0.25s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+.clear__btn {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+
+  padding: 0.5rem;
+  position: relative;
+  width: 100%;
+
+  &::after {
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: $clear-btn-color;
+    opacity: 0;
+
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover::after {
+    opacity: 0.2;
+  }
+
+  & > svg {
+    display: block;
+    fill: $clear-btn-color;
+    height: 1rem;
+    stroke: $clear-btn-color;
+    width: 1rem;
+  }
+}
+
 .link {
   align-items: center;
   color: inherit;
