@@ -7,13 +7,21 @@ import {
 } from "../../utils/constants";
 import style from "./Shop.module.scss";
 import Items from "./components/items/Items";
+import Category from "./components/category/Category";
+import { useParams } from "react-router-dom";
 
 const Shop = () => {
-  const url = `https://api.bestbuy.com/v1/products(categoryPath.id=${DEFAULT_CATEGORY_ID})?format=json&show=sku,name,customerReviewCount,customerReviewAverage,salePrice,image&pageSize=${PAGE_SIZE}&page=${START_PAGE}&sort=${DEFAULT_SORT}&apiKey=${
+  const { categoryId } = useParams();
+
+  const categoryPathId = categoryId || DEFAULT_CATEGORY_ID;
+
+  const url = `https://api.bestbuy.com/v1/products(categoryPath.id=${categoryPathId})?format=json&show=sku,name,customerReviewCount,customerReviewAverage,salePrice,image&pageSize=${PAGE_SIZE}&page=${START_PAGE}&sort=${DEFAULT_SORT}&apiKey=${
     import.meta.env.VITE_API_KEY
   }`;
 
   const [data, error, loading] = useFetch(url);
+
+  console.log(data);
 
   return (
     <>
@@ -45,6 +53,7 @@ const Shop = () => {
             {/* Place of and Sort Items and Shop list and Pagination */}
           </div>
           <div className={`${style.column} ${style.right}`}>
+            <Category categoryId={categoryId} />
             {/* Place of Shop Category */}
           </div>
         </div>
