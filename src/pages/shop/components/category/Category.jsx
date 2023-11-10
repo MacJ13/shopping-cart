@@ -5,7 +5,7 @@ import Close from "../../../../assets/icons/close.svg?react";
 import { CATEGORIES } from "../../../../utils/constants";
 import { NavLink, useNavigate } from "react-router-dom";
 
-const Category = ({ categoryId }) => {
+const Category = ({ categoryId, sortId }) => {
   const navigate = useNavigate();
 
   const button = (
@@ -21,7 +21,9 @@ const Category = ({ categoryId }) => {
   );
 
   const links = CATEGORIES.map((category) => {
-    const to = "category/" + category.id;
+    const categoryPath = "category/" + category.id;
+    const sortParams = sortId ? "?sort=" + sortId : "";
+    const to = categoryPath + sortParams;
     return (
       <li key={category.id} className={style.li}>
         <NavLink
