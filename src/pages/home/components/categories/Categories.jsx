@@ -1,7 +1,15 @@
 import style from "./Categories.module.scss";
 import Device from "../../../../assets/images/macbook.png";
+import { CATEGORIES } from "../../../../utils/constants";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
+  const links = CATEGORIES.map((category) => (
+    <li key={category.id} className={`link ${style.category}`}>
+      <Link to={`/shop/category/${category.id}`}>{category.name}</Link>
+    </li>
+  ));
+
   return (
     <section className={style.section}>
       <div className={style.heading}>
@@ -31,24 +39,7 @@ const Categories = () => {
         </div>
         <ul className={style.ul}>
           <h3 className={style.h3}>check store category</h3>
-          <li className={`link ${style.category}`}>
-            <a href="#">Desktops</a>
-          </li>
-          <li className={`link ${style.category}`}>
-            <a href="#">Laptops</a>
-          </li>
-          <li className={`link ${style.category}`}>
-            <a href="#">Monitors</a>
-          </li>
-          <li className={`link ${style.category}`}>
-            <a href="#">Components</a>
-          </li>
-          <li className={`link ${style.category}`}>
-            <a href="#">Accessories</a>
-          </li>
-          <li className={`link ${style.category}`}>
-            <a href="#">Connectors</a>
-          </li>
+          {links}
         </ul>
       </div>
     </section>

@@ -3,6 +3,7 @@ import Bag from "../../assets/icons/bag.svg?react";
 import Hamburger from "../../assets/icons/hamburger.svg?react";
 
 import style from "./Navbar.module.scss";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -14,10 +15,10 @@ const Navbar = () => {
         <div className={style.controls}>
           <ul className={style.list}>
             <li className={style.item}>
-              <a href="#">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li className={style.item}>
-              <a href="#">Shop</a>
+              <Link to="/shop">Shop</Link>
             </li>
           </ul>
         </div>
