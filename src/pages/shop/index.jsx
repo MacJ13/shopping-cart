@@ -26,6 +26,18 @@ const Shop = () => {
 
   const [data, error, loading] = useFetch(url);
 
+  const panelClassName = loading
+    ? style.panel + " " + style.loading
+    : style.panel;
+
+  if (error) {
+    return <div className={style.error}>error</div>;
+  }
+
+  if (Object.values(data).length === 0 && data.constructor === Object) {
+    return <div>Loading element</div>;
+  }
+
   return (
     <>
       <section className={style.sec}>
@@ -47,12 +59,11 @@ const Shop = () => {
             <h1 className={style.h1}>Best Hardware Sales</h1>
           </div>
         </div>
-        <div className={style.panel}>
+        <div className={panelClassName}>
           <div className={`${style.column} ${style.left}`}>
             <SortItems total={data.total} sortId={sortId} />
-            {Object.values(data).length !== 0 && (
-              <Items items={data.products} />
-            )}
+
+            <Items items={data.products} />
 
             {/* Place of and Sort Items and Shop list and Pagination */}
           </div>

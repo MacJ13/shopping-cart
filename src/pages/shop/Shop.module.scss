@@ -99,10 +99,11 @@ $intro-txt-color: #fff;
 //////////////////////////////
 
 .panel {
-  padding: 2.5rem 3.5%;
+  column-gap: 2rem;
   display: grid;
   grid-template-columns: 1fr 12.5rem;
-  column-gap: 2rem;
+  padding: 1.5rem 3.5%;
+  position: relative;
 
   @media screen and (max-width: 600px) {
     grid-template-columns: 1fr 10rem;
@@ -110,6 +111,20 @@ $intro-txt-color: #fff;
 
   @media screen and (max-width: 400px) {
     grid-template-columns: 1fr 8.5rem;
+  }
+}
+
+.loading {
+  &::after {
+    background-color: #ffffff;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.65;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }
 
