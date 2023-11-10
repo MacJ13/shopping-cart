@@ -1,0 +1,169 @@
+$controls-gradient: linear-gradient(
+  to right top,
+
+  rgba(124, 80, 206, 0.5),
+  rgba(46, 189, 144, 0.85)
+);
+
+$margin-sort-outer: 0.4rem;
+$margin-sort-inner: calc($margin-sort-outer / 2);
+
+.sortbar {
+  padding: 2rem 0;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  //   margin-bottom: 2rem;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+}
+
+.field {
+  align-items: center;
+  display: flex;
+
+  & > span {
+    font-size: 0.85rem;
+    margin-right: 1rem;
+    position: relative;
+    top: $margin-sort-inner;
+
+    // @media screen and (max-width: 600px) {
+    //   display: none;
+    // }
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.frame {
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+  position: relative;
+
+  &::before {
+    background-image: $controls-gradient;
+    border-radius: 1.75rem;
+    content: "";
+    display: block;
+    height: calc(100% + $margin-sort-outer);
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: calc(100% + $margin-sort-outer);
+  }
+}
+
+.controls {
+  //   background-color: #fff;
+  //   background-image: $controls-gradient;
+  border-radius: 1.75rem;
+
+  display: flex;
+  justify-content: center;
+  left: $margin-sort-inner;
+
+  overflow: hidden;
+  //   padding: 0 1rem;
+  position: relative;
+  top: $margin-sort-inner;
+  z-index: 0;
+}
+
+.sort__btn {
+  background-color: #fff;
+  //   border: 0.25rem solid #fff;
+
+  color: rgba(124, 80, 206, 0.75);
+  display: block;
+  font-size: 0.91rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  //   background-color: #fff;
+  margin-right: $margin-sort-inner;
+  padding: 0.33rem 0.9rem;
+
+  word-spacing: -2px;
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 0.85rem;
+  }
+  @media screen and (max-width: 600px) {
+    // font-size: 0.5rem;
+    letter-spacing: 0px;
+  }
+}
+
+.total {
+  font-size: 0.85rem;
+  font-weight: 400;
+
+  & > span {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+}
+
+.active {
+  //   border-color: transparent;
+  background-color: transparent;
+  color: #fff;
+}
+// rgba(124, 80, 206, 0.5),
+// rgba(46, 189, 144, 0.85)
+select {
+  display: none;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      left 35,
+      from(rgba(46, 189, 144, 0.85)),
+      to(rgba(124, 80, 206, 0.5))
+    ),
+    url("data:image/svg+xml,<svg height='12px' width='12px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
+      no-repeat;
+  background-position: calc(100% - 0.75rem) center !important;
+  -moz-appearance: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  padding-right: 2rem !important;
+  fill: #fff;
+
+  position: relative;
+
+  // background-image: $controls-gradient;
+
+  background-color: #f7f7f7;
+  // border: 1px solid #d2d2d2;
+  border: none;
+  border-radius: 1.5rem;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0.5rem 1.25rem;
+  width: auto;
+
+  &:focus {
+    border-color: #a2a2a2;
+  }
+
+  @media screen and (max-width: 600px) {
+    display: block;
+    letter-spacing: 0px;
+  }
+}
+
+option {
+  color: rgba(124, 80, 206, 0.75);
+}
