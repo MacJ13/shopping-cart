@@ -3,6 +3,7 @@ import Logo from "../../../../assets/images/logo.svg?react";
 import DoubleRightChevron from "../../../../assets/icons/double-right-chevron.svg?react";
 import IntroBg from "../../../../assets/images/intro.jpg";
 import Computers from "../../../../assets/images/computers.png";
+import { Link } from "react-router-dom";
 
 const Intro = () => {
   return (
@@ -32,12 +33,12 @@ const Intro = () => {
             <strong>latest technology, highest quality components</strong> and
             backed by lifetime support.
           </p>
-          <a className={`link ${style.link}`} href="#">
+          <Link to="/shop" className={`link ${style.link}`}>
             go to store
             <span className="double-chevron-right">
               <DoubleRightChevron />
             </span>
-          </a>
+          </Link>
         </div>
         <div className={style.img}>
           <img src={Computers} alt="Computers" />

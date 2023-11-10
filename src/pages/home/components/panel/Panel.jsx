@@ -1,6 +1,7 @@
 import style from "./Panel.module.scss";
 import Hardware from "../../../../assets/images/hardware.png";
 import DoubleRightChevron from "../../../../assets/icons/double-right-chevron.svg?react";
+import { Link } from "react-router-dom";
 
 const Panel = () => {
   return (
@@ -37,12 +38,12 @@ const Panel = () => {
                 <li>Competitive & flexible product pricing</li>
               </ul>
               <div className={style.btnbox}>
-                <a className={`link ${style.link}`} href="#">
+                <Link to="/shop" className={`link ${style.link}`}>
                   Shop now
                   <span className="double-chevron-right">
                     <DoubleRightChevron />
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
