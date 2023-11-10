@@ -16,6 +16,12 @@ export const routerConfig = [
       {
         path: "shop/",
         element: <Shop />,
+        children: [
+          {
+            path: "category/:categoryId/",
+            element: <Shop />,
+          },
+        ],
       },
     ],
   },
