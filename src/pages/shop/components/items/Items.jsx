@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import Rating from "../../../../components/rating/Rating";
 import style from "./items.module.scss";
 
 const Item = ({ item }) => {
   return (
     <div className={style.item}>
-      <a className={style.link} href="#">
+      <Link to={`/product/${item.sku}`} className={style.link}>
         <img src={item.image} alt={item.name} />
         <div className={style.desc}>
           <h4 className={style.title}>{item.name}</h4>
@@ -15,7 +16,7 @@ const Item = ({ item }) => {
           />
         </div>
         <span className={style.price}>${item.salePrice}</span>
-      </a>
+      </Link>
     </div>
   );
 };
