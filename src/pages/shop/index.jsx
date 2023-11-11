@@ -10,17 +10,19 @@ import Items from "./components/items/Items";
 import SortItems from "./components/sortItems/SortItems";
 import Category from "./components/category/Category";
 import { useParams, useSearchParams } from "react-router-dom";
+import Pagination from "./components/pagination/Pagination";
 
 const Shop = () => {
   const { categoryId } = useParams();
   const [searchParams] = useSearchParams();
 
   const sortId = searchParams.get("sort");
+  const page = searchParams.get("page") || START_PAGE;
 
   const categoryPathId = categoryId || DEFAULT_CATEGORY_ID;
   const sortedParams = sortId || DEFAULT_SORT;
 
-  const url = `https://api.bestbuy.com/v1/products(categoryPath.id=${categoryPathId})?format=json&show=sku,name,customerReviewCount,customerReviewAverage,salePrice,image&pageSize=${PAGE_SIZE}&page=${START_PAGE}&sort=${sortedParams}&apiKey=${
+  const url = `https://api.bestbuy.com/v1/products(categoryPath.id=${categoryPathId})?format=json&show=sku,name,customerReviewCount,customerReviewAverage,salePrice,image&pageSize=${PAGE_SIZE}&page=${page}&sort=${sortedParams}&apiKey=${
     import.meta.env.VITE_API_KEY
   }`;
 
@@ -64,6 +66,10 @@ const Shop = () => {
             <SortItems total={data.total} sortId={sortId} />
 
             <Items items={data.products} />
+            <Pagination
+              currentPage={data.currentPage}
+              totalPages={data.totalPages}
+            />
 
             {/* Place of and Sort Items and Shop list and Pagination */}
           </div>

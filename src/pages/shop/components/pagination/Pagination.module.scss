@@ -1,0 +1,42 @@
+$pagination-txt-color: rgb(77, 77, 77);
+$button-size: 2.25rem;
+.pagination {
+  padding: 0 1rem;
+}
+
+$button-gradient: linear-gradient(
+  to top,
+  rgba(124, 80, 206, 0.5) 20%,
+  rgba(46, 189, 144, 0.85) 80%
+);
+
+.bar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+  padding: 2rem 0;
+  //   width: 100%;
+}
+
+.btn {
+  & > button {
+    border: none;
+    color: $pagination-txt-color;
+    font-size: 1rem;
+    font-weight: 600;
+    height: $button-size;
+    width: $button-size;
+  }
+
+  & > .active {
+    background-image: $button-gradient;
+    color: white;
+    border-radius: 50%;
+  }
+}
+
+.dot {
+  letter-spacing: 2px;
+}
