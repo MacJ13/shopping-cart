@@ -6,4 +6,9 @@ import svgr from "vite-plugin-svgr";
 export default defineConfig({
   plugins: [svgr(), react()],
   base: "/shopping-cart/",
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./tests/setup.js",
+  },
 });
