@@ -7,16 +7,14 @@ const Item = ({ item }) => {
     <div className={style.item}>
       <a className={style.link} href="#">
         <img src={item.image} alt={item.name} />
-        <div className={style.content}>
-          <div className={style.desc}>
-            <h4 className={style.title}>{item.name}</h4>
-            <Rating
-              reviewAvarage={parseFloat(item.customerReviewAverage)}
-              reviewCount={item.customerReviewCount}
-            />
-          </div>
-          <span className={style.price}>${item.salePrice}</span>
+        <div className={style.desc}>
+          <h4 className={style.title}>{item.name}</h4>
+          <Rating
+            reviewAvarage={parseFloat(item.customerReviewAverage)}
+            reviewCount={item.customerReviewCount}
+          />
         </div>
+        <span className={style.price}>${item.salePrice}</span>
       </a>
     </div>
   );
