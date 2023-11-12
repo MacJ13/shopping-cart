@@ -1,0 +1,27 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  @media screen and (max-width: 800px) {
+    padding: 1rem 0;
+  }
+}
+
+.primary {
+  display: block;
+  height: 27rem;
+  margin-bottom: 5rem;
+  object-fit: contain;
+  width: 100%;
+
+  @media screen and (max-width: 800px) {
+    height: 22rem;
+    margin-bottom: 3rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    height: 17rem;
+    margin-bottom: 3rem;
+  }
+}
