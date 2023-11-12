@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const stars = "★★★★★";
 
 const Rating = ({ large, reviewAvarage, reviewCount }) => {
-  const className = style.rating + `${large ? style.lg : ""}`;
+  const className = style.rating + " " + `${large ? style.lg : ""}`;
 
   return (
     <div className={className}>
@@ -21,7 +21,7 @@ const Rating = ({ large, reviewAvarage, reviewCount }) => {
         {stars}
       </div>
 
-      <div className={style.count}>({reviewCount})</div>
+      {reviewCount && <div className={style.count}>({reviewCount})</div>}
     </div>
   );
 };
