@@ -1,0 +1,63 @@
+$catalog-txt-color: rgb(77, 77, 77);
+
+.product {
+  min-height: 30rem;
+  padding: 0 3.5%;
+
+  padding-top: 4.25rem;
+}
+
+.row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.col {
+  flex: 1;
+}
+
+.heading {
+  & > h1 {
+    margin-bottom: 0.75rem;
+    text-align: justify;
+  }
+}
+
+.content {
+  align-items: center;
+  color: $catalog-txt-color;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+.button {
+  background-color: #000;
+  border-radius: 2rem;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 0.75rem 0;
+  text-transform: uppercase;
+  width: 15rem;
+}
