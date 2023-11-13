@@ -54,3 +54,5 @@ export const SORTS = [
     name: "Z to A",
   },
 ];
+
+export const imgRegex = /Standard/i;

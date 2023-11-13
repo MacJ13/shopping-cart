@@ -4,6 +4,7 @@ import { imgRegex } from "../../utils/constants";
 import style from "./Product.module.scss";
 
 import Rating from "../../components/rating/Rating";
+import Gallery from "./components/gallery/Gallery";
 
 const Product = () => {
   const { productId } = useParams();
@@ -62,7 +63,9 @@ const Product = () => {
             <p className={style.p}>{data.longDescription}</p>
             <button className={style.button}>Add to cart</button>
           </div>
-          <div className={style.col}></div>
+          <div className={style.col}>
+            <Gallery images={images} />
+          </div>
         </div>
       </div>
     </>
