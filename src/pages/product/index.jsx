@@ -20,30 +20,52 @@ const Product = () => {
     return acc;
   }, []);
 
+  if (loading) {
+    return <div>Loading ...</div>;
+  }
+
   return (
-    <div className={style.product}>
-      <div className={style.row}>
-        <div className={style.col}>
-          <div className={style.heading}>
-            <h1>{data.name}</h1>
-            <div className={style.content}>
+    <>
+      <div className={style.bg}>
+        <div className={style.curveBottom}>
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
+              className={style.shapeFill}
+            ></path>
+          </svg>
+        </div>
+      </div>
+
+      <div className={style.product}>
+        <div className={style.row}>
+          <div className={style.col}>
+            <div className={style.heading}>
+              <h1>{data.name}</h1>
               <div className={style.catalog}>
                 <strong>Catalog number: </strong> {data.sku}
               </div>
-              <Rating
-                reviewAvarage={data.customerReviewAverage}
-                reviewCount={data.customerReviewCount}
-                large={true}
-              />
+              <div className={style.content}>
+                <div className={style.price}>${data.regularPrice}</div>
+                <Rating
+                  reviewAvarage={data.customerReviewAverage}
+                  reviewCount={data.customerReviewCount}
+                  large={true}
+                />
+              </div>
             </div>
-            <div className={style.price}>${data.regularPrice}</div>
+            <p className={style.p}>{data.longDescription}</p>
+            <button className={style.button}>Add to cart</button>
           </div>
-          <p className={style.p}>{data.longDescription}</p>
-          <button className={style.button}>Add to cart</button>
+          <div className={style.col}></div>
         </div>
-        <div className={style.col}>{/* place for gallery image */}</div>
       </div>
-    </div>
+    </>
   );
 };
 

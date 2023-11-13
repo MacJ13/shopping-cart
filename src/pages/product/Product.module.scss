@@ -1,10 +1,71 @@
 $catalog-txt-color: rgb(77, 77, 77);
 
+// $product-gradient: radial-gradient(
+//   circle farthest-corner at 3.7% 80.6%,
+//   rgba(249, 185, 255, 1) 4%,
+//   rgba(177, 172, 255, 1) 25%,
+//   #60a5fa 100%
+// );
+
+// $product-gradient: radial-gradient(
+//   circle farthest-corner at 0% 55.6%,
+//   rgba(249, 185, 255, 1) 0%,
+//   rgba(171, 102, 255, 1) 45.6%,
+//   rgba(116, 182, 247, 1) 100%
+// );
+
+// $product-gradient: linear-gradient(
+//   109.6deg,
+//   #80b8f7 11.2%,
+//   rgba(140, 105, 193, 0.87) 91.2%
+// );
+
+$product-gradient: linear-gradient(
+  109.6deg,
+  rgba(124, 80, 206, 0.75) 22.6%,
+
+  #2ebf91 91.2%
+);
+
+$intro-txt-color: #fff;
+
+.bg {
+  background-image: $product-gradient;
+  // background-color: #60a5fa;
+  height: 8.75rem;
+  position: relative;
+  width: 100%;
+}
+
+.curveBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+
+  @media screen and (max-width: 800px) {
+    bottom: 0;
+  }
+}
+
+.curveBottom svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 21px;
+}
+
+.curveBottom .shapeFill {
+  fill: $intro-txt-color;
+}
+
 .product {
   min-height: 30rem;
   padding: 0 3.5%;
 
-  padding-top: 4.25rem;
+  // padding-top: 4.25rem;
 }
 
 .row {
@@ -27,6 +88,23 @@ $catalog-txt-color: rgb(77, 77, 77);
     margin-bottom: 0.75rem;
     text-align: justify;
   }
+
+  &::after {
+    background-image: $product-gradient;
+
+    border-radius: 1rem;
+
+    content: "";
+    display: block;
+    height: 0.25rem;
+    margin-bottom: 2rem;
+
+    position: relative;
+    width: 100%;
+  }
+}
+.catalog {
+  margin-bottom: 1.75rem;
 }
 
 .content {
@@ -35,13 +113,27 @@ $catalog-txt-color: rgb(77, 77, 77);
   display: flex;
   gap: 2rem;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 0.25rem;
 }
 
 .price {
+  // border-radius: 0.75rem;
+  // color: #fff;
   font-size: 2rem;
   font-weight: 500;
-  margin-bottom: 2rem;
+  margin-bottom: 0.25rem;
+  padding: 0.25rem 0;
+  // padding-bottom: 2rem;
+
+  width: auto;
+
+  // background-image: linear-gradient(
+  //   to top right,
+  //   rgba(116, 116, 191, 0.5019607843) 25%,
+  //   #348ac7 80%
+  // );
+  // box-shadow: rgb(204, 219, 232) 0px -3px 0px 0px inset;
+  // rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 
 .p {
@@ -52,12 +144,20 @@ $catalog-txt-color: rgb(77, 77, 77);
 }
 
 .button {
-  background-color: #000;
+  background-color: #3f3f46;
+  // background-image: $product-gradient;
+
   border-radius: 2rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   color: #fff;
   font-size: 1.15rem;
   font-weight: 800;
   padding: 0.75rem 0;
   text-transform: uppercase;
   width: 15rem;
+
+  &:hover {
+    opacity: 0.75;
+  }
 }
