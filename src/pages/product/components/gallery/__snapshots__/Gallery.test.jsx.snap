@@ -1,0 +1,61 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Gallery component > should renders primary image 1`] = `
+<div>
+  <div
+    class="_gallery_4ff466"
+  >
+    <img
+      alt="Alt_View_Standard_13"
+      class="_primary_4ff466"
+      data-testid="primary"
+      src="https://pisces.bbystatic.com/prescaled/500/500/image2/BestBuy_US/images/products/6473/6473857ld.jpg"
+    />
+    <div
+      class="_slider_4ff466"
+      data-testid="slider"
+    >
+      <button
+        class="_thumbnail_4ff466 _active_4ff466"
+      >
+        <img
+          alt="Alt_View_Standard_13_slider"
+          src="https://pisces.bbystatic.com/prescaled/500/500/image2/BestBuy_US/images/products/6473/6473857ld.jpg"
+        />
+      </button>
+      <button
+        class="_thumbnail_4ff466 "
+      >
+        <img
+          alt="Alt_View_Standard_20_slider"
+          src="https://pisces.bbystatic.com/prescaled/500/500/image2/BestBuy_US/images/products/6473/6473857cv17d.jpg"
+        />
+      </button>
+      <button
+        class="_thumbnail_4ff466 "
+      >
+        <img
+          alt="Alt_View_Standard_19_slider"
+          src="https://pisces.bbystatic.com/prescaled/500/500/image2/BestBuy_US/images/products/6473/6473857cv16d.jpg"
+        />
+      </button>
+      <button
+        class="_thumbnail_4ff466 "
+      >
+        <img
+          alt="Alt_View_Standard_18_slider"
+          src="https://pisces.bbystatic.com/prescaled/500/500/image2/BestBuy_US/images/products/6473/6473857cv15d.jpg"
+        />
+      </button>
+      <button
+        class="_thumbnail_4ff466 "
+      >
+        <img
+          alt="Alt_View_Standard_17_slider"
+          src="https://pisces.bbystatic.com/prescaled/500/500/image2/BestBuy_US/images/products/6473/6473857cv14d.jpg"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
