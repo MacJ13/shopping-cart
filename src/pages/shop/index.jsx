@@ -11,6 +11,7 @@ import SortItems from "./components/sortItems/SortItems";
 import Category from "./components/category/Category";
 import { useParams, useSearchParams } from "react-router-dom";
 import Pagination from "./components/pagination/Pagination";
+import Loader from "../../components/loader/Loader";
 
 const Shop = () => {
   const { categoryId } = useParams();
@@ -36,9 +37,9 @@ const Shop = () => {
     return <div className={style.error}>error</div>;
   }
 
-  if (Object.values(data).length === 0 && data.constructor === Object) {
-    return <div>Loading element</div>;
-  }
+  // if (Object.values(data).length === 0 && data.constructor === Object) {
+  //   return <Loader />;
+  // }
 
   return (
     <>
@@ -61,23 +62,27 @@ const Shop = () => {
             <h1 className={style.h1}>Best Hardware Sales</h1>
           </div>
         </div>
-        <div className={panelClassName}>
-          <div className={`${style.column} ${style.left}`}>
-            <SortItems total={data.total} sortId={sortId} />
+        {Object.values(data).length === 0 && data.constructor === Object ? (
+          <Loader />
+        ) : (
+          <div className={panelClassName}>
+            <div className={`${style.column} ${style.left}`}>
+              <SortItems total={data.total} sortId={sortId} />
 
-            <Items items={data.products} />
-            <Pagination
-              currentPage={data.currentPage}
-              totalPages={data.totalPages}
-            />
+              <Items items={data.products} />
+              <Pagination
+                currentPage={data.currentPage}
+                totalPages={data.totalPages}
+              />
 
-            {/* Place of and Sort Items and Shop list and Pagination */}
+              {/* Place of and Sort Items and Shop list and Pagination */}
+            </div>
+            <div className={`${style.column} ${style.right}`}>
+              <Category categoryId={categoryId} sortId={sortId} />
+              {/* Place of Shop Category */}
+            </div>
           </div>
-          <div className={`${style.column} ${style.right}`}>
-            <Category categoryId={categoryId} sortId={sortId} />
-            {/* Place of Shop Category */}
-          </div>
-        </div>
+        )}
       </section>
     </>
   );

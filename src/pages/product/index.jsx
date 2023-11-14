@@ -6,6 +6,7 @@ import style from "./Product.module.scss";
 import Rating from "../../components/rating/Rating";
 import Gallery from "./components/gallery/Gallery";
 import Specifications from "./components/specifications/Specifications";
+import Loader from "../../components/loader/Loader";
 
 const Product = () => {
   const { productId } = useParams();
@@ -21,10 +22,6 @@ const Product = () => {
       return [...acc, { ...current, number: acc.length }];
     return acc;
   }, []);
-
-  if (loading) {
-    return <div>Loading ...</div>;
-  }
 
   return (
     <>
@@ -44,37 +41,42 @@ const Product = () => {
         </div>
       </div>
 
-      <div className={style.product}>
-        <div className={style.row}>
-          <div className={style.col}>
-            <div className={style.heading}>
-              <h1>{data.name}</h1>
-              <div className={style.catalog}>
-                <strong>Catalog number: </strong> {data.sku}
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <div className={style.product}>
+            <div className={style.row}>
+              <div className={style.col}>
+                <div className={style.heading}>
+                  <h1>{data.name}</h1>
+                  <div className={style.catalog}>
+                    <strong>Catalog number: </strong> {data.sku}
+                  </div>
+                  <div className={style.content}>
+                    <div className={style.price}>${data.regularPrice}</div>
+                    <Rating
+                      reviewAvarage={data.customerReviewAverage}
+                      reviewCount={data.customerReviewCount}
+                      large={true}
+                    />
+                  </div>
+                </div>
+                <p className={style.p}>{data.longDescription}</p>
+                <button className={style.button}>Add to cart</button>
               </div>
-              <div className={style.content}>
-                <div className={style.price}>${data.regularPrice}</div>
-                <Rating
-                  reviewAvarage={data.customerReviewAverage}
-                  reviewCount={data.customerReviewCount}
-                  large={true}
-                />
+              <div className={style.col}>
+                <Gallery images={images} />
               </div>
             </div>
-            <p className={style.p}>{data.longDescription}</p>
-            <button className={style.button}>Add to cart</button>
           </div>
-          <div className={style.col}>
-            <Gallery images={images} />
-          </div>
-        </div>
-      </div>
-
-      <Specifications
-        features={data.features}
-        accessories={data.includedItemList}
-        details={data.details}
-      />
+          <Specifications
+            features={data.features}
+            accessories={data.includedItemList}
+            details={data.details}
+          />
+        </>
+      )}
 
       {/* <Specifications title="features">
         {data.features.slice(0, -1).map(({ feature }) => {
