@@ -141,3 +141,24 @@ $list-type-bg-color: rgba(124, 80, 206, 0.75);
     flex: 1;
   }
 }
+
+.curveTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.curveTop svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 16px;
+}
+
+.curveTop .shapeFill {
+  fill: #ffffff;
+}
