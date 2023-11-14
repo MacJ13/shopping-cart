@@ -71,8 +71,8 @@ $intro-txt-color: #fff;
 .row {
   display: flex;
   gap: 2rem;
-  margin-bottom: 2rem;
-  padding: 2rem 0;
+  margin: 3.5rem 0;
+  // padding: 2rem 0;
 
   @media screen and (max-width: 800px) {
     flex-direction: column-reverse;
@@ -113,7 +113,7 @@ $intro-txt-color: #fff;
   display: flex;
   gap: 2rem;
   justify-content: space-between;
-  margin-bottom: 0.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .price {

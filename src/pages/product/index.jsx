@@ -5,6 +5,7 @@ import style from "./Product.module.scss";
 
 import Rating from "../../components/rating/Rating";
 import Gallery from "./components/gallery/Gallery";
+import Specifications from "./components/specifications/Specifications";
 
 const Product = () => {
   const { productId } = useParams();
@@ -68,6 +69,50 @@ const Product = () => {
           </div>
         </div>
       </div>
+
+      <Specifications
+        features={data.features}
+        accessories={data.includedItemList}
+        details={data.details}
+      />
+
+      {/* <Specifications title="features">
+        {data.features.slice(0, -1).map(({ feature }) => {
+          const [title, desc] = feature.split("\n");
+
+          return (
+            <li key={title} className={style.item}>
+              <div className={style.feature}>
+                <h4 className={style.feature__title}>{title}</h4>
+                <span className={style.feature__desc}>{desc}</span>
+              </div>
+            </li>
+          );
+        })}
+      </Specifications>
+
+      {data?.includedItemList.length !== 0 && (
+        <Specifications title="accessories">
+          {data.includedItemList.map(({ includedItem }) => {
+            return (
+              <li key={includedItem} className={style.item}>
+                <span className={style.accessory}>{includedItem}</span>
+              </li>
+            );
+          })}
+        </Specifications>
+      )}
+
+      <Specifications title="details">
+        {data.details.map((detail) => (
+          <li key={detail.name} className={style.item}>
+            <div className={style.detail}>
+              <h4 className={style.detail__name}>{detail.name}</h4>
+              <span className={style.detail__value}>{detail.value}</span>
+            </div>
+          </li>
+        ))}
+      </Specifications> */}
     </>
   );
 };
