@@ -1,0 +1,16 @@
+.loader {
+  align-items: center;
+  display: flex;
+  height: 25rem;
+  justify-content: center;
+
+  //   min-height: 100vh;
+
+  margin: auto;
+  display: flex;
+
+  & > svg {
+    height: 10rem;
+    width: 10rem;
+  }
+}
