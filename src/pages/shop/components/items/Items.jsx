@@ -26,6 +26,14 @@ const Items = ({ items }) => {
     <Item key={item.sku} item={item} />
   ));
 
+  if (items.length === 0) {
+    return (
+      <div className={style.noitems}>
+        <strong>We are sorry! No items found!</strong>
+      </div>
+    );
+  }
+
   return <div className={style.items}>{renderedItems}</div>;
 };
 
