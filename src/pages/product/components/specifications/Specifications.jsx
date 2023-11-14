@@ -4,6 +4,7 @@ import style from "./Specifications.module.scss";
 import { SPECS } from "../../../../utils/constants";
 
 const Specifications = ({ features, accessories, details }) => {
+  console.log({ features, accessories, details });
   const [active, setActive] = useState(SPECS[0]);
 
   const featureItems = features.slice(0, -1).map(({ feature }) => {
@@ -22,7 +23,7 @@ const Specifications = ({ features, accessories, details }) => {
   const accessoryItems = accessories.map(({ includedItem }) => {
     return (
       <li key={includedItem} className={style.item}>
-        <span className={style.accessory}>{includedItem}</span>
+        <h4 className={style.accessory}>{includedItem}</h4>
       </li>
     );
   });
