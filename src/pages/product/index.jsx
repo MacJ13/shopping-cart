@@ -7,6 +7,7 @@ import Rating from "../../components/rating/Rating";
 import Gallery from "./components/gallery/Gallery";
 import Specifications from "./components/specifications/Specifications";
 import Loader from "../../components/loader/Loader";
+import Error from "../error/Error";
 
 const Product = () => {
   const { productId } = useParams();
@@ -22,6 +23,14 @@ const Product = () => {
       return [...acc, { ...current, number: acc.length }];
     return acc;
   }, []);
+
+  if (error) {
+    return (
+      <Error>
+        <strong>Error!</strong> The product doesn&apos;t exist!
+      </Error>
+    );
+  }
 
   return (
     <>
