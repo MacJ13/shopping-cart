@@ -12,6 +12,7 @@ import Category from "./components/category/Category";
 import { useParams, useSearchParams } from "react-router-dom";
 import Pagination from "./components/pagination/Pagination";
 import Loader from "../../components/loader/Loader";
+import Error from "../error/Error";
 
 const Shop = () => {
   const { categoryId } = useParams();
@@ -34,7 +35,11 @@ const Shop = () => {
     : style.panel;
 
   if (error) {
-    return <div className={style.error}>error</div>;
+    return (
+      <Error>
+        <strong>Error!</strong> The page doesn&apos;t exist!
+      </Error>
+    );
   }
 
   // if (Object.values(data).length === 0 && data.constructor === Object) {
@@ -68,7 +73,6 @@ const Shop = () => {
           <div className={panelClassName}>
             <div className={`${style.column} ${style.left}`}>
               <SortItems total={data.total} sortId={sortId} />
-
               <Items items={data.products} />
               <Pagination
                 currentPage={data.currentPage}
