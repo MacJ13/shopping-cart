@@ -55,4 +55,6 @@ export const SORTS = [
   },
 ];
 
+export const SPECS = ["features", "accessories", "details"];
+
 export const imgRegex = /Standard/i;
