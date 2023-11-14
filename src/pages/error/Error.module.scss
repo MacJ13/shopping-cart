@@ -1,0 +1,40 @@
+.error {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 37.5rem;
+  justify-content: center;
+  padding: 0 3.5%;
+  width: 100%;
+}
+
+.icon {
+  margin-bottom: 2.5rem;
+
+  & > svg {
+    height: 12.5rem;
+    width: 12.5rem;
+  }
+}
+
+.msg {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+
+  & > strong {
+    font-weight: 800;
+  }
+}
+
+.btn {
+  background-color: rgb(63, 63, 70);
+  border-radius: 1.25rem;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  padding: 0.75rem 3.5rem;
+  text-transform: uppercase;
+}
