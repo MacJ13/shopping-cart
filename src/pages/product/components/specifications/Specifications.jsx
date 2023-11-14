@@ -6,6 +6,43 @@ import { SPECS } from "../../../../utils/constants";
 const Specifications = ({ features, accessories, details }) => {
   const [active, setActive] = useState(SPECS[0]);
 
+  const featureItems = features.slice(0, -1).map(({ feature }) => {
+    const [title, desc] = feature.split("\n");
+
+    return (
+      <li key={title} className={style.item}>
+        <div className={style.feature}>
+          <h4 className={style.feature__title}>{title}</h4>
+          <span className={style.feature__desc}>{desc}</span>
+        </div>
+      </li>
+    );
+  });
+
+  const accessoryItems = accessories.map(({ includedItem }) => {
+    return (
+      <li key={includedItem} className={style.item}>
+        <span className={style.accessory}>{includedItem}</span>
+      </li>
+    );
+  });
+
+  const detailItems = details.map((detail) => (
+    <li key={detail.name} className={style.item}>
+      <div className={style.detail}>
+        <h4 className={style.detail__name}>{detail.name}</h4>
+        <span className={style.detail__value}>{detail.value}</span>
+      </div>
+    </li>
+  ));
+
+  const items =
+    active === SPECS[0]
+      ? featureItems
+      : active === SPECS[2]
+      ? detailItems
+      : accessoryItems;
+
   return (
     <div className={style.spec}>
       <div className="container">
@@ -30,7 +67,7 @@ const Specifications = ({ features, accessories, details }) => {
           })}
         </div>
         <div className={style.content}>
-          <ul className={style.list}></ul>
+          <ul className={style.list}>{items}</ul>
         </div>
       </div>
     </div>
