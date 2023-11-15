@@ -25,9 +25,14 @@ const StoreProvider = ({ children }) => {
     setOpenMobile(false);
   };
 
+  const showCart = () => {
+    setOpenCart(true);
+  };
+
   const obj = {
     openCart,
     toggleCart,
+    showCart,
     openMobile,
     showMobileMenu,
     hideMobileMenu,
