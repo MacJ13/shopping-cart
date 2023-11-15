@@ -5,9 +5,10 @@ import Hamburger from "../../assets/icons/hamburger.svg?react";
 import style from "./Navbar.module.scss";
 import { Link } from "react-router-dom";
 import { useStore } from "../../context/StoreContext";
+import Mobile from "./Mobile";
 
 const Navbar = () => {
-  const { toggleCart } = useStore();
+  const { toggleCart, openMobile, showMobileMenu } = useStore();
 
   return (
     <nav className={style.nav}>
@@ -30,11 +31,16 @@ const Navbar = () => {
             <Bag />
             <span className={style.count}>0</span>
           </button>
-          <button className={style.navbtn} id={style.mobile}>
+          <button
+            onClick={showMobileMenu}
+            className={style.navbtn}
+            id={style.mobile}
+          >
             <Hamburger />
           </button>
         </div>
       </div>
+      {openMobile && <Mobile />}
     </nav>
   );
 };

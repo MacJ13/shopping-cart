@@ -121,3 +121,53 @@ $cart-size: 1.2rem;
   height: $cart-count-size;
   width: $cart-count-size;
 }
+
+////////////////////////
+/// responsive mobile links
+
+.mobile {
+  background-color: #000000;
+  display: none;
+
+  height: 100%;
+  left: 0;
+  max-width: 27.5rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  @media screen and (max-width: 800px) {
+    display: block;
+  }
+
+  &__heading {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  &__wrapper {
+    position: relative;
+    padding: 2rem;
+    z-index: 25;
+  }
+}
+
+.close {
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 600;
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+.hide {
+  transform: translateX(-100%);
+}
