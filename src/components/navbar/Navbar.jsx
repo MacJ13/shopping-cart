@@ -4,8 +4,11 @@ import Hamburger from "../../assets/icons/hamburger.svg?react";
 
 import style from "./Navbar.module.scss";
 import { Link } from "react-router-dom";
+import { useStore } from "../../context/StoreContext";
 
 const Navbar = () => {
+  const { toggleCart } = useStore();
+
   return (
     <nav className={style.nav}>
       <div className={style.wrapper}>
@@ -23,7 +26,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className={style.features}>
-          <button className={style.navbtn} id={style.cart}>
+          <button onClick={toggleCart} className={style.navbtn} id={style.cart}>
             <Bag />
             <span className={style.count}>0</span>
           </button>

@@ -2,15 +2,23 @@ import { Link } from "react-router-dom";
 import Modal from "../modal/Modal";
 import style from "./Cart.module.scss";
 import Bin from "../../assets/icons/bin.svg?react";
+import { useStore } from "../../context/StoreContext";
 
 const Cart = () => {
+  const { openCart, toggleCart } = useStore();
+
+  if (!openCart) return null;
+
   return (
     <>
-      <Modal />
+      <Modal onClick={toggleCart} />
       <div className={style.cart}>
         <div className={style.heading}>
           <h3>Shopping Cart</h3>
-          <button className={style.close}> &#10005;</button>
+          <button onClick={toggleCart} className={style.close}>
+            {" "}
+            &#10005;
+          </button>
         </div>
         <ul className={style.ul}>
           {/* <li className={style.li}>
