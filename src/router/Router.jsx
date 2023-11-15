@@ -7,7 +7,7 @@ const Router = () => {
 
   return (
     <StoreProvider>
-      <RouterProvider router={routes} />;
+      <RouterProvider router={routes} />
     </StoreProvider>
   );
 };
