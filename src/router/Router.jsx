@@ -1,13 +1,16 @@
 import { RouterProvider, createHashRouter } from "react-router-dom";
 import { routerConfig } from "./routerConfig";
 import StoreProvider from "../context/StoreContext";
+import CartProvider from "../context/CartContext";
 
 const Router = () => {
   const routes = createHashRouter(routerConfig);
 
   return (
     <StoreProvider>
-      <RouterProvider router={routes} />
+      <CartProvider>
+        <RouterProvider router={routes} />
+      </CartProvider>
     </StoreProvider>
   );
 };
