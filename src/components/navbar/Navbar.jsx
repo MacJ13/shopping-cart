@@ -6,10 +6,11 @@ import style from "./Navbar.module.scss";
 import { Link } from "react-router-dom";
 import { useStore } from "../../context/StoreContext";
 import Mobile from "./Mobile";
+import { useCart } from "../../context/CartContext";
 
 const Navbar = () => {
   const { toggleCart, openMobile, showMobileMenu } = useStore();
-
+  const { length } = useCart();
   return (
     <nav className={style.nav}>
       <div className={style.wrapper}>
@@ -29,7 +30,7 @@ const Navbar = () => {
         <div className={style.features}>
           <button onClick={toggleCart} className={style.navbtn} id={style.cart}>
             <Bag />
-            <span className={style.count}>0</span>
+            {length !== 0 && <span className={style.count}>{length}</span>}
           </button>
           <button
             onClick={showMobileMenu}
