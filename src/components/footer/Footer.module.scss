@@ -1,0 +1,114 @@
+$footer-txt-color: #a7a7a7;
+$footer-git-color: #fff;
+
+.footer {
+  background-image: radial-gradient(
+    circle farthest-corner at 80% 81%,
+    #348ac785 0.1%,
+
+    rgb(236, 141, 135) 90.1%
+  );
+  color: $footer-txt-color;
+
+  & > div {
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+}
+
+.info {
+  padding: 3rem 3.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.logo {
+  text-align: center;
+  display: flex;
+  align-items: center;
+
+  // margin-bottom: 1.5rem;
+
+  & > svg {
+    margin-right: 2rem;
+    width: 20rem;
+    height: 100%;
+  }
+}
+
+.slogan {
+  font-weight: 500;
+}
+
+.ul {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  letter-spacing: 2px;
+
+  @media screen and (max-width: 800px) {
+    margin-bottom: 3rem;
+  }
+}
+
+.h3 {
+  text-align: center;
+
+  margin-right: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.33rem;
+}
+
+.li {
+  //   border-top: 1px solid #fff;
+  margin: 0 1rem;
+
+  @media screen and (max-width: 800px) {
+    margin: 0 0.66rem;
+  }
+
+  & > a {
+    color: $footer-txt-color;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+}
+
+#api {
+  text-align: center;
+
+  & > a {
+    color: $footer-txt-color;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+}
+
+.copyright {
+  align-items: center;
+  background-color: #000;
+  // border-top: 1px solid #ffffff39;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 500;
+  justify-content: center;
+  padding: 0.75rem 0;
+}
+
+.gitlink {
+  margin-left: 0.5rem;
+
+  & > svg {
+    fill: $footer-git-color;
+  }
+}
+
+#api {
+  width: 100%;
+}
