@@ -8,8 +8,10 @@ import Gallery from "./components/gallery/Gallery";
 import Specifications from "./components/specifications/Specifications";
 import Loader from "../../components/loader/Loader";
 import Error from "../error/Error";
+import { useCart } from "../../context/CartContext";
 
 const Product = () => {
+  const { addToCart } = useCart();
   const { productId } = useParams();
 
   const url = `https://api.bestbuy.com/v1/products/${productId}.json?show=sku,name,longDescription,manufacturer,features.feature,details.value,details.name,quantityLimit,image,regularPrice,includedItemList.includedItem,images,customerReviewCount,customerReviewAverage,thumbnailImage,modelNumber&apiKey=${
@@ -72,7 +74,14 @@ const Product = () => {
                   </div>
                 </div>
                 <p className={style.p}>{data.longDescription}</p>
-                <button className={style.button}>Add to cart</button>
+                <button
+                  onClick={() => {
+                    addToCart(data);
+                  }}
+                  className={style.button}
+                >
+                  Add to cart
+                </button>
               </div>
               <div className={style.col}>
                 <Gallery images={images} />
