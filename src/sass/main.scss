@@ -6,6 +6,8 @@ $link-hover-bg: rgba(0, 0, 0, 0.15);
 
 $double-right-chevron-size: 2rem;
 
+$modal-bg-color: rgba(0, 0, 0, 0.5);
+
 *,
 *::after,
 *::before {
@@ -89,6 +91,16 @@ select:focus {
   &:hover {
     background-color: $link-hover-bg;
   }
+}
+
+.modal {
+  background-color: $modal-bg-color;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 15;
 }
 
 .double-chevron-right {
