@@ -1,8 +1,38 @@
+import {
+  createSearchParams,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
+import { useStore } from "../../context/StoreContext";
 import style from "./SearchForm.module.scss";
 
 const SearchForm = () => {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const { searchInput, setSearchInput, hideMobileMenu } = useStore();
+
+  const searchTerm = searchParams.get("search") || "";
+
+  const onChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const obj = Object.fromEntries(formData);
+
+    if (!obj.search || obj.search === searchTerm) return;
+    setSearchInput("");
+
+    hideMobileMenu();
+
+    navigate({ pathname: "/shop", search: `${createSearchParams(obj)}` });
+  };
+
   return (
-    <form className={style.form}>
+    <form onSubmit={onSubmit} className={style.form}>
       <button className={style.btn}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -19,6 +49,8 @@ const SearchForm = () => {
           type="text"
           id="search"
           name="search"
+          value={searchInput}
+          onChange={onChange}
           placeholder="Enter searching product..."
         />
       </label>
