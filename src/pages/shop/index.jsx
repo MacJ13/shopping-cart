@@ -20,11 +20,14 @@ const Shop = () => {
 
   const sortId = searchParams.get("sort");
   const page = searchParams.get("page") || START_PAGE;
+  const searchTerm = searchParams.get("search");
 
   const categoryPathId = categoryId || DEFAULT_CATEGORY_ID;
   const sortedParams = sortId || DEFAULT_SORT;
 
-  const url = `https://api.bestbuy.com/v1/products(categoryPath.id=${categoryPathId})?format=json&show=sku,name,customerReviewCount,customerReviewAverage,salePrice,image&pageSize=${PAGE_SIZE}&page=${page}&sort=${sortedParams}&apiKey=${
+  const searchProduct = searchTerm ? `name=${searchTerm}*&` : "";
+
+  const url = `https://api.bestbuy.com/v1/products(${searchProduct}categoryPath.id=${categoryPathId})?format=json&show=sku,name,customerReviewCount,customerReviewAverage,salePrice,image&pageSize=${PAGE_SIZE}&page=${page}&sort=${sortedParams}&apiKey=${
     import.meta.env.VITE_API_KEY
   }`;
 
