@@ -1,9 +1,5 @@
-//////////////////////////////////
-///////// ScrollToTop
 import { useEffect } from "react";
 import { useLocation } from "react-router";
-
-const pathNameHistory = new Set();
 
 const ScrollToTop = () => {
   const { pathname, search } = useLocation();
