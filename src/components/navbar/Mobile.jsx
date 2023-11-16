@@ -3,6 +3,7 @@ import style from "./Navbar.module.scss";
 import Logo from "../../assets/images/logo.svg?react";
 import { Link } from "react-router-dom";
 import { useStore } from "../../context/StoreContext";
+import SearchForm from "../searchForm/SearchForm";
 
 const Mobile = () => {
   const { hideMobileMenu } = useStore();
@@ -18,6 +19,7 @@ const Mobile = () => {
               &#10005;
             </button>
           </div>
+          <SearchForm />
           <ul className={style.list}>
             <li className={style.item}>
               <Link onClick={hideMobileMenu} to="/">

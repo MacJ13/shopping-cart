@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useStore } from "../../context/StoreContext";
 import Mobile from "./Mobile";
 import { useCart } from "../../context/CartContext";
+import SearchForm from "../searchForm/SearchForm";
 
 const Navbar = () => {
   const { toggleCart, openMobile, showMobileMenu } = useStore();
@@ -18,6 +19,7 @@ const Navbar = () => {
           <Logo />
         </div>
         <div className={style.controls}>
+          <SearchForm />
           <ul className={style.list}>
             <li className={style.item}>
               <Link to="/">Home</Link>
