@@ -3,7 +3,11 @@
 import style from "./SortItems.module.scss";
 import PropTypes from "prop-types";
 
-import { SORTS, DEFAULT_SORT } from "../../../../utils/constants";
+import {
+  SORTS,
+  DEFAULT_SORT,
+  DEFAULT_CATEGORY_ID,
+} from "../../../../utils/constants";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -90,8 +94,10 @@ const Controls = ({ children }) => (
 );
 
 const SortItem = ({ total, sortId }) => {
-  const [_, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [sortType, setSortType] = useState(DEFAULT_SORT);
+
+  const page = searchParams.get("page");
 
   useEffect(() => {
     if (!sortId) setSortType(DEFAULT_SORT);
@@ -102,7 +108,17 @@ const SortItem = ({ total, sortId }) => {
     if (sortType === type) return;
     setSortType(type);
 
-    setSearchParams({ sort: type });
+    if (page) {
+      searchParams.delete("page");
+    }
+
+    if (type === DEFAULT_CATEGORY_ID) {
+      searchParams.delete("sort");
+    } else {
+      searchParams.set("sort", type);
+    }
+
+    setSearchParams(searchParams);
   };
 
   const options = SORTS.map((sort) =>
