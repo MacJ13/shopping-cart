@@ -104,22 +104,23 @@ $margin-sort-inner: calc($margin-sort-outer / 2);
 }
 
 .total {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 400;
 
-  & > span {
-    font-size: 0.95rem;
-    font-weight: 500;
+  margin-left: 1rem;
+
+  text-align: center;
+
+  &__search > strong {
+    font-size: 1rem;
   }
 }
 
 .active {
-  //   border-color: transparent;
   background-color: transparent;
   color: #fff;
 }
-// rgba(124, 80, 206, 0.5),
-// rgba(46, 189, 144, 0.85)
+
 select {
   display: none;
   background: -webkit-gradient(

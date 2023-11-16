@@ -99,6 +99,8 @@ const SortItem = ({ total, sortId }) => {
 
   const page = searchParams.get("page");
 
+  const searchTerm = searchParams.get("search");
+
   useEffect(() => {
     if (!sortId) setSortType(DEFAULT_SORT);
     else setSortType(sortId);
@@ -137,16 +139,9 @@ const SortItem = ({ total, sortId }) => {
     <button
       onClick={() => {
         changeSearchParams(sort.type);
-        // if (sortParams === sort.type) return;
-        // setSortType(sort.type);
-        // setSearchParams({ sort: sort.type });
       }}
       key={sort.type}
       className={`${style.sort__btn} ${
-        // !sortParams && DEFAULT_SORT === sort.type
-        //   ? style.active
-        //   :
-        // sortParams &&
         sortType === sort.type ? style.active : ""
       }`}
     >
@@ -170,13 +165,25 @@ const SortItem = ({ total, sortId }) => {
         </select>
 
         <Controls>{buttons}</Controls>
-        {/* <Controls type={sortType} onChange={onChangeType} /> */}
       </div>
       <div className={style.total}>
-        Search results:{" "}
-        <span>
-          {total} {total === 1 ? "item" : "items"}
-        </span>
+        Search results{" "}
+        {searchTerm ? (
+          <>
+            for:{" "}
+            <div className={style.total__search}>
+              <strong>
+                ({searchTerm}) {total}{" "}
+              </strong>
+              {total === 1 ? "item" : "items"}
+            </div>
+          </>
+        ) : (
+          <>
+            <strong>: {total} </strong>
+            {total === 1 ? "item" : "items"}
+          </>
+        )}
       </div>
     </div>
   );
