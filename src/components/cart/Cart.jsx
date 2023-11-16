@@ -1,13 +1,56 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import Modal from "../modal/Modal";
 import style from "./Cart.module.scss";
 import Bin from "../../assets/icons/bin.svg?react";
 import { useStore } from "../../context/StoreContext";
+import { useCart } from "../../context/CartContext";
+
+const CartItem = ({ item }) => {
+  const { image, sku, name, regularPrice, amount, id } = item;
+
+  return (
+    <li className={style.li}>
+      <div className={style.product}>
+        <div className={style.product__img}>
+          <img src={image} alt={name} />
+        </div>
+        <div className={style.content}>
+          <div className={style.row}>
+            <Link to={`/product/${sku}`}>
+              <h4 className={style.h4}>{name}</h4>
+            </Link>
+            <button className={style.remove}>
+              <Bin />
+            </button>
+          </div>
+          <div className={style.row}>
+            <div className={style.price}>${regularPrice}</div>
+            <div className={style.controls}>
+              <button data-btntype="-" className={style.ascdesc}>
+                &#8722;
+              </button>
+              <span className={style.count}>{amount}</span>
+              <button data-btntype="+" className={style.ascdesc}>
+                &#43;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  );
+};
 
 const Cart = () => {
   const { openCart, toggleCart } = useStore();
+  const { length, cartItems, totalPayment } = useCart();
 
   if (!openCart) return null;
+
+  const items = cartItems.map((item) => (
+    <CartItem key={item.sku} item={item} />
+  ));
 
   return (
     <>
@@ -20,52 +63,21 @@ const Cart = () => {
             &#10005;
           </button>
         </div>
-        <ul className={style.ul}>
-          {/* <li className={style.li}>
-            <div className={style.product}>
-              <div className={style.product__img}>
-                <img
-                  src="https://pisces.bbystatic.com/prescaled/500/500/image2/BestBuy_US/images/products/6265/6265133_sd.jpg"
-                  alt="Logitech - G502 HERO Wired Optical Gaming Mouse with RGB Lighting - Black"
-                />
+        {length !== 0 ? (
+          <>
+            <ul className={style.ul}>{items}</ul>
+            <div className={style.payment}>
+              <div className={style.row}>
+                total: <span className={style.total}>${totalPayment}</span>
               </div>
-              <div className={style.content}>
-                <div className={style.row}>
-                  <Link to="/product/6265133">
-                    <h4 className={style.h4}>
-                      Logitech - G502 HERO Wired Optical Gaming Mouse with RGB
-                      Lighting - Black
-                    </h4>
-                  </Link>
-                  <button className={style.remove}>
-                    <Bin />
-                  </button>
-                </div>
-                <div className={style.row}>
-                  <div className={style.price}>$49.99</div>
-                  <div className={style.controls}>
-                    <button data-btntype="-" className={style.ascdesc}>
-                      &#8722;
-                    </button>
-                    <span className={style.count}>1</span>
-                    <button data-btntype="+" className={style.ascdesc}>
-                      &#43;
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <button id={style.checkout}>proceed to checkout </button>
             </div>
-          </li> */}
-        </ul>
-        <div className={style.payment}>
-          <div className={style.row}>
-            total: <span className={style.total}>$0</span>
+          </>
+        ) : (
+          <div className={style.empty}>
+            <em>No products in cart.</em>
           </div>
-          <button id={style.checkout}>proceed to checkout </button>
-        </div>
-        {/* <div className={style.empty}>
-          <em>No products in cart.</em>
-        </div> */}
+        )}
       </div>
     </>
   );
