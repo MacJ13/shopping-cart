@@ -7,6 +7,7 @@ import { useStore } from "../../context/StoreContext";
 import { useCart } from "../../context/CartContext";
 
 const CartItem = ({ item }) => {
+  const { changeAmountItem, removeFromCart } = useCart();
   const { image, sku, name, regularPrice, amount, id } = item;
 
   return (
@@ -20,18 +21,35 @@ const CartItem = ({ item }) => {
             <Link to={`/product/${sku}`}>
               <h4 className={style.h4}>{name}</h4>
             </Link>
-            <button className={style.remove}>
+            <button
+              onClick={() => {
+                removeFromCart(id);
+              }}
+              className={style.remove}
+            >
               <Bin />
             </button>
           </div>
           <div className={style.row}>
             <div className={style.price}>${regularPrice}</div>
             <div className={style.controls}>
-              <button data-btntype="-" className={style.ascdesc}>
+              <button
+                onClick={() => {
+                  changeAmountItem("-", id, amount);
+                }}
+                data-btntype="-"
+                className={style.ascdesc}
+              >
                 &#8722;
               </button>
               <span className={style.count}>{amount}</span>
-              <button data-btntype="+" className={style.ascdesc}>
+              <button
+                onClick={() => {
+                  changeAmountItem("+", id, amount);
+                }}
+                data-btntype="+"
+                className={style.ascdesc}
+              >
                 &#43;
               </button>
             </div>
