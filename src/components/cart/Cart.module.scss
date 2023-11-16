@@ -5,10 +5,14 @@ $close-btn-hover-color: #64748b;
 $close-btn-active-color: #a3a3a3;
 
 $product-img-size: 4rem;
-$bin-icon-size: 1.5rem;
+$bin-icon-size: 1.33rem;
 
-$bin-fill-color: rgb(173, 172, 172);
+$bin-fill-color: #a3a3a3;
 $h4-color: rgb(77, 77, 77);
+$price-color: rgb(49, 49, 49);
+
+$ascdesc-font-size: 1.25rem;
+$ascdesc-btn-size: 1.33rem;
 
 .cart {
   background-color: $cart-bg-color;
@@ -61,7 +65,7 @@ $h4-color: rgb(77, 77, 77);
 
 .li {
   &:not(:last-child) {
-    margin-bottom: 2.25rem;
+    margin-bottom: 3.5rem;
   }
 }
 
@@ -86,6 +90,10 @@ $h4-color: rgb(77, 77, 77);
 .content {
   flex: 1;
   margin-left: 1rem;
+
+  & > .row:first-child {
+    align-items: flex-start;
+  }
 }
 
 .row {
@@ -100,6 +108,7 @@ $h4-color: rgb(77, 77, 77);
 .h4 {
   color: $h4-color;
   font-size: 0.9rem;
+  font-weight: 500;
   width: calc(100% - 2rem);
 }
 
@@ -121,12 +130,15 @@ $h4-color: rgb(77, 77, 77);
 }
 
 .price {
-  font-size: 1.1rem;
+  color: $price-color;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 .controls {
+  align-items: center;
   display: flex;
+  justify-content: center;
 }
 
 .count {
@@ -138,10 +150,13 @@ $h4-color: rgb(77, 77, 77);
 .ascdesc {
   background-color: $btn-ascdesc-bg-color;
 
-  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $ascdesc-font-size;
   font-weight: 500;
-
-  padding: 0 0.35rem;
+  height: $ascdesc-btn-size;
+  width: $ascdesc-btn-size;
 
   &:hover {
     background-color: rgb(229, 229, 229);
@@ -156,19 +171,24 @@ $h4-color: rgb(77, 77, 77);
   border-top: 1px solid rgb(235, 235, 235);
   display: flex;
   flex-direction: column;
+
   font-weight: 600;
   justify-content: center;
   padding-top: 1.25rem;
 
   & > .row {
-    font-size: 1rem;
+    font-size: 1.1rem;
     align-items: center;
-    margin-bottom: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
   }
 }
 
 .total {
-  font-size: 1.25rem;
+  color: $price-color;
+  font-size: 1.33rem;
+  font-weight: 700;
+  margin-left: 1.5rem;
 }
 
 .empty {
