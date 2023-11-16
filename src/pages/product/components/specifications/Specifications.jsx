@@ -4,7 +4,6 @@ import style from "./Specifications.module.scss";
 import { SPECS } from "../../../../utils/constants";
 
 const Specifications = ({ features, accessories, details }) => {
-  console.log({ features, accessories, details });
   const [active, setActive] = useState(SPECS[0]);
 
   const featureItems = features.slice(0, -1).map(({ feature }) => {
