@@ -21,7 +21,7 @@ const Rating = ({ large, reviewAvarage, reviewCount }) => {
         {stars}
       </div>
 
-      {reviewCount && <div className={style.count}>({reviewCount})</div>}
+      {reviewCount && <div className={style.count}>( {reviewCount} )</div>}
     </div>
   );
 };

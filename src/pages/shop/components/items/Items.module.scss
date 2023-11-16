@@ -10,10 +10,10 @@ $desc-bg-before: linear-gradient(
 $item-top-offset: 4rem;
 
 .items {
-  padding: 2rem 0rem;
   display: flex;
   flex-wrap: wrap;
   margin: auto;
+  margin-bottom: 1rem;
 }
 
 .item {
@@ -71,6 +71,8 @@ $item-top-offset: 4rem;
 
 .title {
   color: $link-txt-color;
+  font-size: 0.9rem;
+  font-weight: 500;
 
   margin-bottom: 0.25rem;
 }
@@ -87,7 +89,7 @@ $item-top-offset: 4rem;
   color: $link-txt-color;
   display: inline-block;
 
-  font-size: 105%;
+  font-size: 1.125rem;
   font-weight: 500;
   margin-top: 1rem;
 }

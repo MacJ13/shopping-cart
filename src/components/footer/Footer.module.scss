@@ -50,7 +50,7 @@ $footer-git-color: #fff;
   flex-wrap: wrap;
   justify-content: center;
 
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 
   @media screen and (max-width: 800px) {
     margin-bottom: 3rem;
@@ -67,15 +67,15 @@ $footer-git-color: #fff;
 
 .li {
   //   border-top: 1px solid #fff;
-  margin: 0 1rem;
+  margin: 0 0.75rem;
 
   @media screen and (max-width: 800px) {
-    margin: 0 0.66rem;
+    margin: 0 0.65rem;
   }
 
   & > a {
     color: $footer-txt-color;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
   }
 }

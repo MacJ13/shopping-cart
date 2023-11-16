@@ -1,4 +1,5 @@
-$rating-txt-color: #a5a4a4;
+$rating-txt-color: #a3a3a3;
+$overall-bg-color: rgb(212, 212, 212);
 
 .rating {
   align-items: center;
@@ -16,9 +17,9 @@ $rating-txt-color: #a5a4a4;
 }
 
 .stars {
-  color: $rating-txt-color;
+  color: $overall-bg-color;
   display: inline-block;
-  font-size: 1.1rem;
+  font-size: 1.33rem;
   margin-right: 0.5rem;
   position: relative;
 }
@@ -33,4 +34,6 @@ $rating-txt-color: #a5a4a4;
 
 .count {
   color: $rating-txt-color;
+  font-size: 0.9rem;
+  word-spacing: -1px;
 }

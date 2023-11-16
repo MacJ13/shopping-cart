@@ -55,6 +55,7 @@ $h3-color: rgba(255, 255, 255, 0.375);
 
   @media screen and (max-width: 700px) {
     font-size: 2.75rem;
+    text-align: center;
   }
 
   @media screen and (max-width: 00px) {
@@ -134,7 +135,7 @@ $h3-color: rgba(255, 255, 255, 0.375);
 .category {
   background-image: $category-bg-img;
   box-shadow: $category-box-shadow;
-  font-size: 1.2rem;
+  font-size: 1rem;
 
   text-align: center;
   text-transform: capitalize;

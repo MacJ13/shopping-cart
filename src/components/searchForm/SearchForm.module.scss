@@ -22,12 +22,17 @@ $search-field-placeholder-color: #ffffff9b;
   @media screen and (max-width: 800px) {
     justify-content: flex-start;
     margin-bottom: 2rem;
+    border: 1px solid $search-color;
 
     width: 18rem;
 
     &:focus-within {
       border-bottom-color: $search-color-focus;
       width: auto;
+
+      @media screen and (max-width: 800px) {
+        border-color: $search-color-focus;
+      }
     }
   }
 

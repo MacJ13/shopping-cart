@@ -52,18 +52,15 @@ $intro-txt-color: #fff;
     font-size: 3.5rem;
   }
 
-  //   @media screen and (max-width: 700px) {
-  //     font-size: 2.25rem;
-  //   }
-
   @media screen and (max-width: 600px) {
+    font-size: 3rem;
     top: 0.75rem;
     font-size: 3rem;
   }
 
   @media screen and (max-width: 500px) {
-    top: 0.66rem;
-    font-size: 2.25rem;
+    top: 0.5rem;
+    font-size: 2.125rem;
   }
 }
 
@@ -74,9 +71,6 @@ $intro-txt-color: #fff;
   width: 100%;
   overflow: hidden;
   line-height: 0;
-
-  @media screen and (max-width: 800px) {
-  }
 }
 
 .curveBottom svg {
@@ -129,15 +123,12 @@ $intro-txt-color: #fff;
 }
 
 .column.left {
-  flex: 1;
-  //   min-height: 45rem;
-  // background-color: bisque;
   border-right: 2px solid rgb(235, 235, 235);
+  flex: 1;
   position: relative;
   padding-right: 2rem;
 }
 
 .column.right {
   padding: 2rem 0;
-  // background-color: #cccccc;
 }
