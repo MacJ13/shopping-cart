@@ -1,18 +1,16 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 
-const pathNameHistory = new Set();
-
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
 
-  console.log({ pathname });
+  const searchLocation = search || "";
+
+  const fullPathName = pathname + searchLocation;
+
   useEffect(() => {
-    if (!pathNameHistory.has(pathname)) {
-      window.scrollTo(0, 0);
-      pathNameHistory.add(pathname);
-    }
-  }, [pathname]);
+    window.scrollTo(0, 0);
+  }, [fullPathName]);
 
   return null;
 };
