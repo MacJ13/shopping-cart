@@ -11,82 +11,6 @@ import {
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-// const Dropdown = ({ type, onChange }) => {
-//   const [searchParams, setSearchParams] = useSearchParams();
-
-//   const params = searchParams.get("sort");
-//   const options = SORTS.map((sort) =>
-//     type === sort.type ? (
-//       <option selected="selected" key={sort.type} value={sort.type}>
-//         {sort.name}
-//       </option>
-//     ) : (
-//       <option key={sort.type} value={sort.type}>
-//         {sort.name}
-//       </option>
-//     )
-//   );
-
-//   return (
-//     <select
-//       onChange={(e) => {
-//         const type = e.target.value;
-//         if (params === type) return;
-//         onChange(type);
-//         setSearchParams({ sort: type });
-//       }}
-//       name="select"
-//       id="select"
-//     >
-//       {options}
-//     </select>
-//   );
-// };
-
-// const Dropdown = ({ type, onChange }) => {
-//   const [searchParams, setSearchParams] = useSearchParams();
-
-//   const params = searchParams.get("sort");
-//   const options = SORTS.map((sort) =>
-//     type === sort.type ? (
-//       <option selected="selected" key={sort.type} value={sort.type}>
-//         {sort.name}
-//       </option>
-//     ) : (
-//       <option key={sort.type} value={sort.type}>
-//         {sort.name}
-//       </option>
-//     )
-//   );
-
-//   return (
-//     <select
-//       onChange={(e) => {
-//         const type = e.target.value;
-//         if (params === type) return;
-//         onChange(type);
-//         setSearchParams({ sort: type });
-//       }}
-//       name="select"
-//       id="select"
-//     >
-//       {options}
-//     </select>
-//   );
-// };
-
-// const Controls = ({ type, onChange }) => {
-//   const [searchParams, setSearchParams] = useSearchParams();
-
-//   const params = searchParams.get("sort");
-
-//   return (
-//     <div className={style.frame}>
-//       <div className={style.controls}>{buttons}</div>
-//     </div>
-//   );
-// };
-
 const Controls = ({ children }) => (
   <div className={style.frame}>
     <div className={style.controls}>{children}</div>
@@ -123,17 +47,11 @@ const SortItem = ({ total, sortId }) => {
     setSearchParams(searchParams);
   };
 
-  const options = SORTS.map((sort) =>
-    sortType === sort.type ? (
-      <option selected="selected" key={sort.type} value={sort.type}>
-        {sort.name}
-      </option>
-    ) : (
-      <option key={sort.type} value={sort.type}>
-        {sort.name}
-      </option>
-    )
-  );
+  const options = SORTS.map((sort) => (
+    <option key={sort.type} value={sort.type}>
+      {sort.name}
+    </option>
+  ));
 
   const buttons = SORTS.map((sort) => (
     <button
@@ -153,13 +71,13 @@ const SortItem = ({ total, sortId }) => {
     <div className={style.sortbar}>
       <div className={style.field}>
         <span>Sort by</span>
-        {/* <Dropdown type={sortType} onChange={onChangeType} /> */}
         <select
           onChange={(e) => {
             changeSearchParams(e.target.value);
           }}
           name="select"
           id="select"
+          value={sortType}
         >
           {options}
         </select>

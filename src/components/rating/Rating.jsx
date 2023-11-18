@@ -28,7 +28,7 @@ const Rating = ({ large, reviewAvarage, reviewCount }) => {
 
 Rating.propTypes = {
   reviewAvarage: PropTypes.number.isRequired,
-  reviewCount: PropTypes.number.isRequired,
+  reviewCount: PropTypes.number,
 };
 
 Rating.defaultProps = {

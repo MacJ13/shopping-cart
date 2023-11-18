@@ -15,7 +15,7 @@ $margin-sort-inner: calc($margin-sort-outer / 2);
   justify-content: space-between;
   //   margin-bottom: 2rem;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1100px) {
     flex-direction: column;
   }
 }
@@ -35,13 +35,13 @@ $margin-sort-inner: calc($margin-sort-outer / 2);
     // }
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1100px) {
     margin-bottom: 2rem;
   }
 }
 
 .frame {
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     display: none;
   }
   position: relative;
@@ -106,13 +106,10 @@ $margin-sort-inner: calc($margin-sort-outer / 2);
 .total {
   font-size: 0.9rem;
   font-weight: 400;
-
-  margin-left: 1rem;
-
-  text-align: center;
-
-  &__search > strong {
-    font-size: 1rem;
+  margin-left: 2rem;
+  & > span {
+    font-size: 0.95rem;
+    font-weight: 500;
   }
 }
 
@@ -159,7 +156,7 @@ select {
     border-color: #a2a2a2;
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     display: block;
     letter-spacing: 0px;
   }
