@@ -175,6 +175,18 @@ $link-box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   display: flex;
   justify-content: center;
 
+  @media screen and (max-width: 1100px) {
+    top: 3.5rem;
+  }
+
+  @media screen and (max-width: 1000px) {
+    top: 5rem;
+  }
+
+  @media screen and (max-width: 1000px) {
+    top: 2.825rem;
+  }
+
   & > img {
     display: block;
     max-width: 35rem;
