@@ -14,6 +14,9 @@ $footer-git-color: #fff;
     background-color: rgba(0, 0, 0, 0.85);
   }
 }
+.content {
+  padding: 0 3.5%;
+}
 
 .info {
   padding: 3rem 3.5%;
@@ -33,10 +36,19 @@ $footer-git-color: #fff;
 
   // margin-bottom: 1.5rem;
 
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+
   & > svg {
     margin-right: 2rem;
     width: 20rem;
     height: 100%;
+
+    @media screen and (max-width: 800px) {
+      margin-right: 0rem;
+      margin-bottom: 2rem;
+    }
   }
 }
 
@@ -92,7 +104,7 @@ $footer-git-color: #fff;
 
 .copyright {
   align-items: center;
-  background-color: #000;
+  background-color: #000 !important;
   // border-top: 1px solid #ffffff39;
   display: flex;
   font-size: 1.2rem;
