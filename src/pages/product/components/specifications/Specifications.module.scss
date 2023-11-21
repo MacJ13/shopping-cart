@@ -90,6 +90,10 @@ $list-type-bg-color: rgba(124, 80, 206, 0.75);
 .feature {
   margin-right: 5rem;
 
+  @media screen and (max-width: 700px) {
+    margin-right: 0rem;
+  }
+
   &__title {
     margin-bottom: 0.33rem;
     text-transform: capitalize;
