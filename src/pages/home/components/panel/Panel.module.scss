@@ -3,12 +3,12 @@ $list-type-size: 0.3rem;
 $panel-link-bg: linear-gradient(to top right, #348ac7 10%, #7474bf80 90%);
 $panel-link-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
-.panel {
+.pane {
+  composes: pane from "../../../../components/splitPane/SplitPane.module.scss";
+
   align-items: center;
-  display: flex;
 
   column-gap: 4.75rem;
-  justify-content: center;
 
   @media screen and (max-width: 700px) {
     column-gap: 0;
@@ -54,23 +54,6 @@ $panel-link-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 }
 
-.column {
-  text-align: justify;
-  flex: 1;
-
-  .h2 {
-    font-size: 3.125rem;
-
-    & > strong {
-      font-weight: 800;
-    }
-
-    @media screen and (max-width: 900px) {
-      font-size: 3rem;
-    }
-  }
-}
-
 .poster {
   border-radius: 1.5rem;
   box-shadow: rgba(0, 0, 0, 0.28) 0px 15px 40px 4px;
@@ -97,11 +80,21 @@ $panel-link-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 .box {
   & .h2 {
+    font-size: 3.125rem;
     padding: -1rem 0;
+
+    & > strong {
+      font-weight: 800;
+    }
+
+    @media screen and (max-width: 900px) {
+      font-size: 3rem;
+    }
   }
 
   & > p {
     font-size: 0.95rem;
+    text-align: justify;
 
     line-height: 1.75;
     margin-bottom: 1.5rem;

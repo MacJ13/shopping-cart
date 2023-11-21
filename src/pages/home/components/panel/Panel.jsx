@@ -2,20 +2,22 @@ import style from "./Panel.module.scss";
 import Hardware from "../../../../assets/images/hardware.png";
 import DoubleRightChevron from "../../../../assets/icons/double-right-chevron.svg?react";
 import { Link } from "react-router-dom";
+import SplitPane from "../../../../components/splitPane/SplitPane";
 
 const Panel = () => {
   return (
     <section className="section">
       <div className="container">
-        <div className={style.panel}>
-          <div className={style.column}>
+        <SplitPane
+          cls={style.pane}
+          left={
             <div className={style.wrap}>
               <div className={style.poster}>
                 <img src={Hardware} alt="hardware image" />
               </div>
             </div>
-          </div>
-          <div className={style.column}>
+          }
+          right={
             <div className={style.box}>
               <h2 className={style.h2}>
                 <em>Strong hardware</em>
@@ -46,8 +48,8 @@ const Panel = () => {
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
+          }
+        />
       </div>
     </section>
   );
