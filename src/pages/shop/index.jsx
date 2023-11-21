@@ -85,7 +85,7 @@ const Shop = () => {
               {/* Place of and Sort Items and Shop list and Pagination */}
             </div>
             <div className={`${style.column} ${style.right}`}>
-              <Category categoryId={categoryId} sortId={sortId} />
+              <Category categoryId={categoryId} />
               {/* Place of Shop Category */}
             </div>
           </div>

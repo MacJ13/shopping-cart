@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import style from "./SortItems.module.scss";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import {
@@ -8,8 +10,6 @@ import {
   DEFAULT_SORT,
   DEFAULT_CATEGORY_ID,
 } from "../../../../utils/constants";
-import { useSearchParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 const Controls = ({ children }) => (
   <div className={style.frame}>
@@ -17,12 +17,12 @@ const Controls = ({ children }) => (
   </div>
 );
 
-const SortItem = ({ total, sortId }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
+const SortItem = ({ total }) => {
   const [sortType, setSortType] = useState(DEFAULT_SORT);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const page = searchParams.get("page");
-
+  const sortId = searchParams.get("sort");
   const searchTerm = searchParams.get("search");
 
   useEffect(() => {
@@ -32,7 +32,6 @@ const SortItem = ({ total, sortId }) => {
 
   const changeSearchParams = (type) => {
     if (sortType === type) return;
-    setSortType(type);
 
     if (page) {
       searchParams.delete("page");
