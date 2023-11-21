@@ -6,6 +6,8 @@ import { SPECS } from "../../../../utils/constants";
 const Specifications = ({ features, accessories, details }) => {
   const [active, setActive] = useState(SPECS[0]);
 
+  const [featureName, accsName, detailName] = SPECS;
+
   const featureItems = features.slice(0, -1).map(({ feature }) => {
     const [title, desc] = feature.split("\n");
 
@@ -37,9 +39,9 @@ const Specifications = ({ features, accessories, details }) => {
   ));
 
   const items =
-    active === SPECS[0]
+    active === featureName
       ? featureItems
-      : active === SPECS[2]
+      : active === detailName
       ? detailItems
       : accessoryItems;
 
@@ -61,7 +63,7 @@ const Specifications = ({ features, accessories, details }) => {
       <div className="container">
         <div className={style.controls}>
           {SPECS.map((spec) => {
-            if (spec === "accessories" && accessories.length === 0) return null;
+            if (spec === accsName && accessories.length === 0) return null;
             return (
               <button
                 key={spec}
