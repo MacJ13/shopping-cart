@@ -9,6 +9,7 @@ import Specifications from "./components/specifications/Specifications";
 import Loader from "../../components/loader/Loader";
 import Error from "../error/Error";
 import { useCart } from "../../context/CartContext";
+import SplitPane from "../../components/splitPane/SplitPane";
 
 const Product = () => {
   const { addToCart } = useCart();
@@ -57,36 +58,37 @@ const Product = () => {
       ) : (
         <>
           <div className={style.product}>
-            <div className={style.row}>
-              <div className={style.col}>
-                <div className={style.heading}>
-                  <h1>{data.name}</h1>
-                  <div className={style.catalog}>
-                    <strong>Catalog number: </strong> {data.sku}
+            <SplitPane
+              cls={style.pane}
+              left={
+                <>
+                  <div className={style.heading}>
+                    <h1>{data.name}</h1>
+                    <div className={style.catalog}>
+                      <strong>Catalog number: </strong> {data.sku}
+                    </div>
+                    <div className={style.content}>
+                      <div className={style.price}>${data.regularPrice}</div>
+                      <Rating
+                        reviewAvarage={data.customerReviewAverage}
+                        reviewCount={data.customerReviewCount}
+                        large={true}
+                      />
+                    </div>
                   </div>
-                  <div className={style.content}>
-                    <div className={style.price}>${data.regularPrice}</div>
-                    <Rating
-                      reviewAvarage={data.customerReviewAverage}
-                      reviewCount={data.customerReviewCount}
-                      large={true}
-                    />
-                  </div>
-                </div>
-                <p className={style.p}>{data.longDescription}</p>
-                <button
-                  onClick={() => {
-                    addToCart(data);
-                  }}
-                  className={style.button}
-                >
-                  Add to cart
-                </button>
-              </div>
-              <div className={style.col}>
-                <Gallery images={images} />
-              </div>
-            </div>
+                  <p className={style.p}>{data.longDescription}</p>
+                  <button
+                    onClick={() => {
+                      addToCart(data);
+                    }}
+                    className={style.button}
+                  >
+                    Add to cart
+                  </button>
+                </>
+              }
+              right={<Gallery images={images} />}
+            />
           </div>
           <Specifications
             features={data.features}
@@ -95,44 +97,6 @@ const Product = () => {
           />
         </>
       )}
-
-      {/* <Specifications title="features">
-        {data.features.slice(0, -1).map(({ feature }) => {
-          const [title, desc] = feature.split("\n");
-
-          return (
-            <li key={title} className={style.item}>
-              <div className={style.feature}>
-                <h4 className={style.feature__title}>{title}</h4>
-                <span className={style.feature__desc}>{desc}</span>
-              </div>
-            </li>
-          );
-        })}
-      </Specifications>
-
-      {data?.includedItemList.length !== 0 && (
-        <Specifications title="accessories">
-          {data.includedItemList.map(({ includedItem }) => {
-            return (
-              <li key={includedItem} className={style.item}>
-                <span className={style.accessory}>{includedItem}</span>
-              </li>
-            );
-          })}
-        </Specifications>
-      )}
-
-      <Specifications title="details">
-        {data.details.map((detail) => (
-          <li key={detail.name} className={style.item}>
-            <div className={style.detail}>
-              <h4 className={style.detail__name}>{detail.name}</h4>
-              <span className={style.detail__value}>{detail.value}</span>
-            </div>
-          </li>
-        ))}
-      </Specifications> */}
     </>
   );
 };

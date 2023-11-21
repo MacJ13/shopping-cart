@@ -68,18 +68,14 @@ $intro-txt-color: #fff;
   // padding-top: 4.25rem;
 }
 
-.row {
-  display: flex;
-  gap: 2rem;
+.pane {
+  composes: pane from "../../components/splitPane/SplitPane.module.scss";
   padding: 5.5rem 0;
+  gap: 2rem;
 
   @media screen and (max-width: 800px) {
     flex-direction: column-reverse;
   }
-}
-
-.col {
-  flex: 1;
 }
 
 .heading {
