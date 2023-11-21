@@ -18,8 +18,10 @@ $h3-color: rgba(255, 255, 255, 0.375);
     transform: scale(1.2);
   }
 
-  @media screen and (max-width: 1000px) {
-    transform: scale(1);
+  @media screen and (max-width: 900px) {
+    &:hover .device {
+      transform: scale(0.95);
+    }
   }
 }
 
