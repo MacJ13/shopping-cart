@@ -1,0 +1,10 @@
+.pane {
+  display: flex;
+
+  justify-content: center;
+
+  &__left,
+  &__right {
+    flex: 1;
+  }
+}
