@@ -49,8 +49,9 @@ $panel-link-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   @media screen and (max-width: 700px) {
     border-bottom-left-radius: 1.5rem;
     left: 0%;
+    top: 3rem;
 
-    top: 1.5rem;
+    transform: translateX(-6rem);
   }
 }
 
