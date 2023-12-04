@@ -1,4 +1,5 @@
 import App from "../App";
+import Checkout from "../pages/checkout";
 import Error from "../pages/error/Error";
 import Home from "../pages/home";
 import Product from "../pages/product";
@@ -32,6 +33,10 @@ export const routerConfig = [
             element: <Shop />,
           },
         ],
+      },
+      {
+        path: "checkout/",
+        element: <Checkout />,
       },
     ],
   },
