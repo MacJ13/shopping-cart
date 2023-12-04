@@ -1,10 +1,31 @@
+import { useCart } from "../../context/CartContext";
 import style from "./Checkout.module.scss";
 import Logo from "../../assets/images/logo.svg?react";
 import ArrowBack from "../../assets/icons/arrow-back.svg?react";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
+  const { cartItems } = useCart();
   const navigate = useNavigate();
+
+  const items = cartItems.map((item) => {
+    return (
+      <li className={style.li} key={item.id}>
+        <img src={item.image} alt={item.name} />
+        <div className={style.info}>
+          <h4 className={style.h4}>{item.name}</h4>
+          <div className={style.spec}>
+            <span className={style.price}>
+              <strong>${(item.regularPrice * item.amount).toFixed(2)}</strong>
+            </span>
+            <span className={style.amount}>
+              quantity: <strong>{item.amount}</strong>
+            </span>
+          </div>
+        </div>
+      </li>
+    );
+  });
 
   return (
     <div className={style.section}>
@@ -30,6 +51,17 @@ const Checkout = () => {
               Thanks for watching and using the website.
             </p>
           </div>
+
+          {cartItems.length !== 0 && (
+            <>
+              <ul className={style.ul}>
+                <h2>Cart items</h2>
+
+                {items}
+                <button id={style.btn__clear}>clear cart</button>
+              </ul>
+            </>
+          )}
         </div>
       </div>
     </div>
