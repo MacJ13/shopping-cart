@@ -27,7 +27,13 @@ $ascdesc-btn-size: 1.33rem;
   top: 0;
   right: 0;
   width: 100%;
+
   z-index: 25;
+  transition: right 1s linear;
+}
+
+.hidden {
+  right: -100%;
 }
 
 .heading {
@@ -211,6 +217,7 @@ $ascdesc-btn-size: 1.33rem;
   font-weight: 800;
   margin: auto;
   padding: 0.75rem 0;
+  text-align: center;
   text-transform: uppercase;
   width: 22.5rem;
 }

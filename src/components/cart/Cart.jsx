@@ -88,7 +88,9 @@ const Cart = () => {
               <div className={style.row}>
                 total: <span className={style.total}>${totalPayment}</span>
               </div>
-              <button id={style.checkout}>proceed to checkout </button>
+              <Link to="/checkout" onClick={toggleCart} id={style.checkout}>
+                proceed to checkout{" "}
+              </Link>
             </div>
           </>
         ) : (
