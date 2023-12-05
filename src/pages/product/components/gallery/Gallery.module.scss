@@ -49,9 +49,13 @@ $thumbnail-border-active: 2px solid rgba(124, 80, 206, 0.541);
     object-fit: contain;
     width: 100%;
   }
+
+  &:hover {
+    opacity: 0.85;
+  }
 }
 
 .active {
   border: $thumbnail-border-active;
-  opacity: 1;
+  opacity: 1 !important;
 }
