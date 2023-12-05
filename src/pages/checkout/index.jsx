@@ -1,11 +1,13 @@
-import { useCart } from "../../context/CartContext";
+/* eslint-disable react-hooks/exhaustive-deps */
 import style from "./Checkout.module.scss";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
+
 import Logo from "../../assets/images/logo.svg?react";
 import ArrowBack from "../../assets/icons/arrow-back.svg?react";
-import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
-  const { cartItems } = useCart();
+  const { cartItems, clearCartItems } = useCart();
   const navigate = useNavigate();
 
   const items = cartItems.map((item) => {
@@ -46,7 +48,7 @@ const Checkout = () => {
             <h1 className={style.h1}>Checkout payment</h1>
             <p className={style.p}>
               This is an example template store website for learn frontend
-              utitlites.
+              utilities.
               <br />
               Thanks for watching and using the website.
             </p>
@@ -58,7 +60,15 @@ const Checkout = () => {
                 <h2>Cart items</h2>
 
                 {items}
-                <button id={style.btn__clear}>clear cart</button>
+                <button
+                  onClick={() => {
+                    clearCartItems();
+                    navigate("/");
+                  }}
+                  id={style.btn__clear}
+                >
+                  clear cart
+                </button>
               </ul>
             </>
           )}

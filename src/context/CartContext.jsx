@@ -55,6 +55,10 @@ const CartProvider = ({ children }) => {
     setCartItems(updatedItems);
   };
 
+  const clearCartItems = () => {
+    setCartItems([]);
+  };
+
   const totalPayment = cartItems.reduce((total, current) => {
     const { regularPrice, amount } = current;
 
@@ -68,6 +72,7 @@ const CartProvider = ({ children }) => {
     addToCart,
     changeAmountItem,
     removeFromCart,
+    clearCartItems,
   };
   return <CartContext.Provider value={obj}>{children}</CartContext.Provider>;
 };
